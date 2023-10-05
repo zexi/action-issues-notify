@@ -34,8 +34,9 @@ class Input:
                         "content": [
                             [
                                 {
-                                "tag": "text",
-                                "text": json.loads(self.issue_body)
+                                "tag": "a",
+                                "text": "查看原文",
+                                "href": self.issue_link_url,
                                 }
                             ],
                             [
@@ -44,11 +45,10 @@ class Input:
                                     "text": "\n",
                                 },
                                 {
-                                "tag": "a",
-                                "text": "查看原文",
-                                "href": self.issue_link_url,
+                                "tag": "text",
+                                "text": json.loads(self.issue_body)
                                 }
-                            ]
+                            ],
                         ]
                     }
                 }
@@ -81,16 +81,16 @@ class Input:
                         #     }
                         # },
                         {
-                            "tag": "markdown",
-                            "content": json.loads(self.issue_body),
-                        },
-                        {
                             "tag": "div",
                             "text": {
                                 "content": f"[查看原文]({self.issue_link_url})",
                                 "tag": "lark_md"
                             }
-                        }
+                        },
+                        {
+                            "tag": "markdown",
+                            "content": json.loads(self.issue_body),
+                        },
                         # {
                         #     "tag": "action",
                         #     "actions": [
